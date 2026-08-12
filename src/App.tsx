@@ -1,10 +1,7 @@
+import { AppRoutes } from './router/routes.tsx'; 
 
 function App() {
-  return (
-    <>
-      hello world
-    </>
-  )
+  return <AppRoutes />
 }
 
 export default App
