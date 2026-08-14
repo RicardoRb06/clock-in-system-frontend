@@ -5,7 +5,17 @@ interface LoginRequest {
     password: string,
 }
 
+interface RegisterRequest {
+    name: string,
+    password: string,
+}
+
 export async function login(data: LoginRequest) {
     const response = await api.post("auth/login", data);
     return response.data;
+}
+
+export async function register(data: RegisterRequest) {
+    const response = await api.post("auth/login", data);
+    return response.data
 }
