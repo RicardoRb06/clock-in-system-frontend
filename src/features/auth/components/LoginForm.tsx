@@ -44,12 +44,8 @@ export function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-            <div className="mb-2">
-                <Text variant="title">IFNITE</Text>
-            </div>
-
-            <div className="flex flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
                 <label htmlFor="name">
                     <Text variant="body">Nome</Text>
                 </label>
@@ -66,7 +62,7 @@ export function LoginForm() {
                 />
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-2">
                 <label htmlFor="password">
                     <Text variant="body">Senha</Text>
                 </label>
