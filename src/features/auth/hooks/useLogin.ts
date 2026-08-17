@@ -16,7 +16,7 @@ export function useLogin() {
 
         } catch(error) {
             setError("Não foi possível realizar o login.");
-            throw error;
+            return error;
         } finally {
             setLoading(false);
         }
