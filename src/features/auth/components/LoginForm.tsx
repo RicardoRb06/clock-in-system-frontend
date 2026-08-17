@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom"
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
 import { Text } from "../../../components/ui/Text"
@@ -6,9 +8,20 @@ import { Text } from "../../../components/ui/Text"
 export function LoginForm() {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const { executeLogin, loading, error } = useLogin();
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        await executeLogin(name, password);
+
+        navigate("/");
+    };
 
     return (
-        <form className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="mb-2">
                 <Text variant="title">IFNITE</Text>
             </div>
@@ -46,11 +59,11 @@ export function LoginForm() {
             </div>
 
             <div className="flex flex-row gap-3 pt-2">
-                <Button type="submit">
-                    Entrar
+                <Button type="submit" disabled={loading}>
+                    {loading ? "Entrando ..." : "Entrar"}
                 </Button>
 
-                <Button type="button">
+                <Button type="button" onClick={() => navigate("/register")}>
                     Criar conta
                 </Button>
             </div>
