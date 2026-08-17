@@ -13,7 +13,7 @@ export function LoginPage() {
       }}
     >
       <div className="w-full max-w-md flex flex-col gap-6">
-        <Text variant="title">IFNITE</Text>
+        <Text variant="title" className="text-center">IFNITE</Text>
         <LoginForm/>
       </div>
     </main>
