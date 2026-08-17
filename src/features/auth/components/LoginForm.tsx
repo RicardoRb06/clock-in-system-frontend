@@ -7,13 +7,34 @@ import { Text } from "../../../components/ui/Text"
 
 export function LoginForm() {
     const [name, setName] = useState('');
+    const [nameError, setNameError] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate();
 
     const { executeLogin, loading, error } = useLogin();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        let valid = true;
+
+        if(!name.trim()){
+            setNameError("Nome é obrigatório");
+            valid = false;
+        } else {
+            setNameError("")
+        }
+
+        if(!password.trim()){
+            setPasswordError("Senha é obrigatória");
+            valid = false;
+        } else {
+            setPasswordError("");
+        }
+
+        if(!valid){
+            return;
+        }
 
         await executeLogin(name, password);
 
@@ -36,6 +57,7 @@ export function LoginForm() {
                     name="name"
                     type="text"
                     value={name}
+                    error={nameError}
                     onChange={(e) => setName(e.target.value)}
                     autoComplete="username"
                     placeholder="Digite seu nome"
@@ -52,6 +74,7 @@ export function LoginForm() {
                     name="password"
                     type="password"
                     value={password}
+                    error={passwordError}
                     onChange={(e) => setPassword(e.target.value)}
                     autoComplete="current-password"
                     placeholder="Digite sua senha"
