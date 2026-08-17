@@ -44,7 +44,7 @@ export function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
                 <label htmlFor="name">
                     <Text variant="body">Nome</Text>
@@ -80,12 +80,12 @@ export function LoginForm() {
             </div>
 
 
-            <div className="flex flex-row gap-3 pt-2">
+            <div className="flex flex-col pt-2">
                 <Button type="submit" disabled={loading}>
                     {loading ? "Entrando ..." : "Entrar"}
                 </Button>
 
-                <Button type="button" onClick={() => navigate("/register")}>
+                <Button type="button" variant="ghost" onClick={() => navigate("/register")}>
                     Criar conta
                 </Button>
             </div>
