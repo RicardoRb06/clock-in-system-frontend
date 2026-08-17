@@ -30,11 +30,11 @@ export function Input({
     return (
         <div className="flex w-full flex-col gap-1.5">
             {label && <label className="text-sm font-medium text-gray-700">{label}</label>}
-            {error && <span className="text-sm text-red-500">{error}</span>}
             <input
                 className={`${baseStyles} ${stateStyles} ${sizes[inputSize]} ${className}`}
                 {...props}
-            />
+                />
+            {error && <span className="text-sm text-red-500">{error}</span>}
         </div>
   );
 }
