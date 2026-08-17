@@ -2,7 +2,7 @@ import type{ ComponentPropsWithoutRef, ElementType } from 'react';
 
 interface TextProps extends ComponentPropsWithoutRef<'p'> {
     as?: ElementType,
-    variant?: 'title' | 'subtitle' | 'body' | 'caption',
+    variant?: 'title' | 'subtitle' | 'body' | 'caption' | 'error',
 
 }
 
@@ -11,6 +11,7 @@ const variants = {
     subtitle: 'text-lg font-semibold text-gray-700',
     body: 'text-base font-normal text-gray-600',
     caption: 'text-sm text-gray-400',
+    error: 'text-sm text-red-500',
 };
 
 export function Text({
