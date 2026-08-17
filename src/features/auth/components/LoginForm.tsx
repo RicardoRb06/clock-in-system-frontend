@@ -36,9 +36,11 @@ export function LoginForm() {
             return;
         }
 
-        await executeLogin(name, password);
+        const response = await executeLogin(name, password);
 
-        navigate("/");
+        if(response.success){
+            navigate("/");
+        }
     };
 
     return (
@@ -81,6 +83,7 @@ export function LoginForm() {
                 />
             </div>
 
+
             <div className="flex flex-row gap-3 pt-2">
                 <Button type="submit" disabled={loading}>
                     {loading ? "Entrando ..." : "Entrar"}
@@ -90,6 +93,7 @@ export function LoginForm() {
                     Criar conta
                 </Button>
             </div>
+            {error && <Text variant="error">{error}</Text>}
         </form>
     );
 }
