@@ -12,11 +12,11 @@ export function useLogin() {
 
             const response = await login({name, password});
 
-            return response;
+            return {success: true, data: response};
 
         } catch(error) {
             setError("Não foi possível realizar o login.");
-            return error;
+            return {success: false, data: null};
         } finally {
             setLoading(false);
         }
