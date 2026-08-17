@@ -23,7 +23,7 @@ export function Text({
 }: TextProps) {
 
     return (
-        <Component className={variants[variant]} {...props}>
+        <Component className={`${variants[variant]} ${className}`} {...props}>
             {children}
         </Component>
     );
