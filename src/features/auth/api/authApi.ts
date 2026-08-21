@@ -8,7 +8,7 @@ interface LoginRequest {
 interface RegisterRequest {
     name: string,
     password: string,
-    category: string,
+    category: string | null,
 }
 
 export async function login(data: LoginRequest) {
