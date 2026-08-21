@@ -78,18 +78,10 @@ export function LoginForm() {
                     placeholder="Digite sua senha"
                 />
             </div>
-
-
-            <div className="flex flex-col pt-2">
-                <Button type="submit" disabled={loading}>
-                    {loading ? "Entrando ..." : "Entrar"}
-                </Button>
-
-                <Button type="button" variant="ghost" onClick={() => navigate("/register")}>
-                    Criar conta
-                </Button>
-            </div>
             {error && <Text variant="error">{error}</Text>}
+            <Button type="submit" disabled={loading}>
+                {loading ? "Entrando ..." : "Entrar"}
+            </Button>
         </form>
     );
 }
