@@ -29,7 +29,7 @@ export function Input({
 
     return (
         <div className="flex w-full flex-col gap-1.5">
-            {label && <label className="text-sm font-medium text-gray-700">{label}</label>}
+            {label && <label className="text-base font-normal text-gray-600">{label}</label>}
             <input
                 className={`${baseStyles} ${stateStyles} ${sizes[inputSize]} ${className}`}
                 {...props}
