@@ -45,39 +45,30 @@ export function LoginForm() {
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-                <label htmlFor="name">
-                    <Text variant="body">Nome</Text>
-                </label>
+            <Input
+                label="Nome"
+                id="name"
+                name="name"
+                type="text"
+                value={name}
+                error={nameError}
+                onChange={(e) => setName(e.target.value)}
+                autoComplete="username"
+                placeholder="Digite seu nome"
+            />
 
-                <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={name}
-                    error={nameError}
-                    onChange={(e) => setName(e.target.value)}
-                    autoComplete="username"
-                    placeholder="Digite seu nome"
-                />
-            </div>
+            <Input
+                label="Senha"
+                id="password"
+                name="password"
+                type="password"
+                value={password}
+                error={passwordError}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+                placeholder="Digite sua senha"
+            />
 
-            <div className="flex flex-col gap-2">
-                <label htmlFor="password">
-                    <Text variant="body">Senha</Text>
-                </label>
-
-                <Input
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={password}
-                    error={passwordError}
-                    onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="current-password"
-                    placeholder="Digite sua senha"
-                />
-            </div>
             {error && <Text variant="error">{error}</Text>}
             <Button type="submit" disabled={loading}>
                 {loading ? "Entrando ..." : "Entrar"}
