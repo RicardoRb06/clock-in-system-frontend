@@ -49,7 +49,6 @@ export function LoginForm() {
                 label="Nome"
                 id="name"
                 name="name"
-                type="text"
                 value={name}
                 error={nameError}
                 onChange={(e) => setName(e.target.value)}
