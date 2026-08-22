@@ -11,7 +11,7 @@ export interface SelectProps {
     error?: string;
     inputSize?: "sm" | "md" | "lg";
     options: SelectOption[];
-    value?: string;
+    value?: string | null;
     onChange?: (value: string) => void;
     placeholder?: string;
     disabled?: boolean;
