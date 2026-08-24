@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
 import { Text } from "../../../components/ui/Text"
 import { useRegister } from '../hooks/useRegister';
 import { Select } from '../../../components/ui/Select';
+import { useRegisterForm } from '../hooks/useRegisterForm';
 
 const categoryOptions = [
     { value: "NONE", label: "Nenhum"},
@@ -16,51 +16,21 @@ const categoryOptions = [
 ];
 
 export function RegisterForm() {
-    const [name, setName] =  useState('');
-    const [nameError, setNameError] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const [passwordConfirm, setPasswordConfirm] = useState('');
-    const [passwordConfirmError, setPasswordConfirmError] = useState('');
-    const [category, setCategory] = useState<string | null>(null);
     const navigate = useNavigate();
 
+    const {data, errors, updateField, validate} = useRegisterForm();
     const { executeRegister, loading, error } = useRegister();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        let valid = true;
-
-        if(!name.trim()) {
-            setNameError("Nome é obrigatório");
-            valid = false;
-        } else {
-            setNameError("")
-        }
-
-        if(!category) {
-            setCategory("NONE");
-        }
-
-        if(!password.trim()){
-            setPasswordError("Senha é obrigatória");
-            valid = false;
-        } else {
-            setPasswordError("");
-        }
-
-        if(password !== passwordConfirm){
-            setPasswordConfirmError("As senhas não são iguais");
-            valid = false;
-        } else {
-            setPasswordConfirmError("");
-        }
-
-        if(!valid){
+        
+        if(!validate()){
             return;
         }
 
-        const response = await executeRegister(name, password, category);
+        const category = data.category === "NONE" ? null : data.category;
+
+        const response = await executeRegister(data.name, data.password, category);
 
         if(response.success){
             navigate("/");
@@ -74,17 +44,17 @@ export function RegisterForm() {
                 label="Nome"
                 id="name"
                 name="name"
-                value={name}
-                error={nameError}
-                onChange={(e) => setName(e.target.value)}
+                value={data.name}
+                error={errors.name}
+                onChange={(e) => updateField("name", e.target.value)}
                 placeholder="Digite seu nome"
             />
 
             <Select
                 label="Equipe"
                 options={categoryOptions}
-                onChange={setCategory}
-                value={category}
+                onChange={(e) => updateField("category", e)}
+                value={data.category}
             />
 
             <Input
@@ -92,9 +62,9 @@ export function RegisterForm() {
                 id="password"
                 name="password"
                 type="password"
-                value={password}
-                error={passwordError}
-                onChange={(e) => setPassword(e.target.value)}
+                value={data.password}
+                error={errors.password}
+                onChange={(e) => updateField("password", e.target.value)}
                 placeholder="Digite sua senha"
             />
 
@@ -103,9 +73,9 @@ export function RegisterForm() {
                 id="passwordConfirm"
                 name="passwordConfirm"
                 type="password"
-                value={passwordConfirm}
-                error={passwordConfirmError}
-                onChange={(e) => setPasswordConfirm(e.target.value)}
+                value={data.passwordConfirm}
+                error={errors.passwordConfirm}
+                onChange={(e) => updateField("passwordConfirm", e.target.value)}
                 placeholder="Digite sua senha"
             />
 
