@@ -5,16 +5,7 @@ import { Text } from "../../../components/ui/Text"
 import { useRegister } from '../hooks/useRegister';
 import { Select } from '../../../components/ui/Select';
 import { useRegisterForm } from '../hooks/useRegisterForm';
-import type { Category } from "../types/category";
-
-const categoryOptions: {value: Category; label: string}[] = [
-    { value: "NONE", label: "Nenhum"},
-    { value: "COMBAT", label: "Combate"},
-    { value: "MARKETING", label: "Marketing"},
-    { value: "LINE_CHASER", label: "Seguidor de Linha"},
-    { value: "SOCCER_2D", label: "Simulação de Futebol 2D"},
-    { value: "SUMO", label: "Sumô"},
-];
+import { categoryOptions } from "../types/category";
 
 export function RegisterForm() {
     const navigate = useNavigate();
