@@ -41,6 +41,14 @@ export function useRegisterForm() {
         if(!data.password.trim()){
             newErrors.password = "Senha é obrigatória";
         } 
+
+        if(data.password.trim().length <= 8){
+            newErrors.password = "Senha deve ter no mínimo 8 caracteres"
+        }
+
+        if(data.password.trim().length > 64){
+            newErrors.password = "Senha deve ter no máximo 64 caracteres"
+        }
         
         if(!data.passwordConfirm.trim()){
             newErrors.passwordConfirm = "As senhas não são iguais";
