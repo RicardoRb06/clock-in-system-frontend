@@ -18,3 +18,11 @@ api.interceptors.request.use(
         return Promise.reject(error);
     }
 )
+
+api.interceptors.response.use(
+    (response) => {
+        console.log("STATUS: ", response.status);
+        console.log("DATA ", response.data);
+        return response;
+    },
+)
