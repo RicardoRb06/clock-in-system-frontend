@@ -5,8 +5,9 @@ import { Text } from "../../../components/ui/Text"
 import { useRegister } from '../hooks/useRegister';
 import { Select } from '../../../components/ui/Select';
 import { useRegisterForm } from '../hooks/useRegisterForm';
+import type { Category } from "../types/category";
 
-const categoryOptions = [
+const categoryOptions: {value: Category; label: string}[] = [
     { value: "NONE", label: "Nenhum"},
     { value: "COMBAT", label: "Combate"},
     { value: "MARKETING", label: "Marketing"},
