@@ -1,8 +1,9 @@
 import { useState } from "react";
+import type { Category } from "../types/category";
 
 interface RegisterFormData {
     name: string;
-    category: string | null;
+    category: Category | null;
     password: string;
     passwordConfirm: string;
 }
