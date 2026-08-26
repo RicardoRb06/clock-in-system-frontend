@@ -40,13 +40,9 @@ export function useRegisterForm() {
 
         if(!data.password.trim()){
             newErrors.password = "Senha é obrigatória";
-        } 
-
-        if(data.password.trim().length <= 8){
+        } else if(data.password.trim().length <= 8){
             newErrors.password = "Senha deve ter no mínimo 8 caracteres"
-        }
-
-        if(data.password.trim().length > 64){
+        } else if(data.password.trim().length > 64){
             newErrors.password = "Senha deve ter no máximo 64 caracteres"
         }
         
