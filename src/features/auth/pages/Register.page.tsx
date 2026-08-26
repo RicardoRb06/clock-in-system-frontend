@@ -20,7 +20,7 @@ export function RegisterPage() {
         <Text variant="title" className="text-center">IFNITE</Text>
         <RegisterForm />
         <Button type="button" variant="ghost" onClick={() => navigate("/login")}>
-          Cancelar
+          Voltar
         </Button>
       </div>
     </main>
