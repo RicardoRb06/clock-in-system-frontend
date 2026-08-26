@@ -47,7 +47,7 @@ export function useRegisterForm() {
         }
         
         if(!data.passwordConfirm.trim()){
-            newErrors.passwordConfirm = "As senhas não são iguais";
+            newErrors.passwordConfirm = "Confirmação de senha é obrigatória";
         } else if(data.password !== data.passwordConfirm) {
             newErrors.passwordConfirm = "As senhas não são iguais";
         }
