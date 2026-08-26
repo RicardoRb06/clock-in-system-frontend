@@ -1,11 +1,11 @@
 import wallpaperDesktop from '../../../assets/images/backgrounds/wallpaperColor.svg';
 import wallpaperMobile from '../../../assets/images/backgrounds/wallpaper.svg';
-import { RegisterForm } from '../components/RegisterForm';
+import { LoginForm } from '../components/Login.form';
 import { Text } from '../../../components/ui/Text';
 import { Button } from '../../../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
 
-export function RegisterPage() {
+export function LoginPage() {
   const navigate = useNavigate();
 
   return (
@@ -18,9 +18,9 @@ export function RegisterPage() {
     >
       <div className="w-full max-w-md flex flex-col">
         <Text variant="title" className="text-center">IFNITE</Text>
-        <RegisterForm />
-        <Button type="button" variant="ghost" onClick={() => navigate("/login")}>
-          Cancelar
+        <LoginForm/>
+        <Button type="button" variant="ghost" onClick={() => navigate("/register")}>
+          Criar conta
         </Button>
       </div>
     </main>
