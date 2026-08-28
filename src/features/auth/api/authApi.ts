@@ -20,3 +20,8 @@ export async function register(data: RegisterRequest) {
     const response = await api.post("auth/register", data);
     return response.data
 }
+
+export async function me(){
+    const response = await api.get("auth/me");
+    return response.data
+}
