@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { login } from "../api/authApi.ts"
+import { useAuth } from "./useAuth.ts";
 
 export function useLogin() {
+    const { refreshUser } = useAuth();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
