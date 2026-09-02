@@ -5,6 +5,7 @@ import { ProtectedRoutes } from "./protected.routes";
 
 import { LoginPage } from "../../pages/Login.page";
 import { RegisterPage } from "../../pages/Register.page";
+import { RoleRoute } from "./role.routes";
 
 export function AppRoutes() {
   return (
@@ -15,7 +16,14 @@ export function AppRoutes() {
       </Route>
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/" />
+        <Route element={<RoleRoute allowedRoles={["USER"]} />}>
+        </Route>
+        <Route element={<RoleRoute allowedRoles={["ADMIN"]} />}>
+        </Route>
+        <Route element={<RoleRoute allowedRoles={["MODERATOR"]} />}>
+        </Route>
+        <Route element={<RoleRoute allowedRoles={["TIME_CLOCK"]} />}>
+        </Route>
       </Route>
     </Routes>
   );
