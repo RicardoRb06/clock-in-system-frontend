@@ -1,42 +1,24 @@
-import React, { useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom"
 import { Button } from "../../../components/ui/Button";
 import { Input } from "../../../components/ui/Input";
 import { Text } from "../../../components/ui/Text"
+import { useLoginForm } from "../hooks/useLoginForm";
 
 export function LoginForm() {
-    const [name, setName] = useState('');
-    const [nameError, setNameError] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordError, setPasswordError] = useState('');
     const navigate = useNavigate();
 
+    const { data, errors, updateField, validate } = useLoginForm();
     const { executeLogin, loading, error } = useLogin();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        let valid = true;
-
-        if(!name.trim()){
-            setNameError("Nome é obrigatório");
-            valid = false;
-        } else {
-            setNameError("")
-        }
-
-        if(!password.trim()){
-            setPasswordError("Senha é obrigatória");
-            valid = false;
-        } else {
-            setPasswordError("");
-        }
-
-        if(!valid){
+        
+        if(!validate()){
             return;
         }
 
-        const response = await executeLogin(name, password);
+        const response = await executeLogin(data.name, data.password);
 
         if(response.success){
             navigate("/");
@@ -49,9 +31,9 @@ export function LoginForm() {
                 label="Nome"
                 id="name"
                 name="name"
-                value={name}
-                error={nameError}
-                onChange={(e) => setName(e.target.value)}
+                value={data.name}
+                error={errors.name}
+                onChange={(e) => updateField("name", e.target.value)}
                 autoComplete="username"
                 placeholder="Digite seu nome"
             />
@@ -61,9 +43,9 @@ export function LoginForm() {
                 id="password"
                 name="password"
                 type="password"
-                value={password}
-                error={passwordError}
-                onChange={(e) => setPassword(e.target.value)}
+                value={data.password}
+                error={errors.password}
+                onChange={(e) => updateField("password", e.target.value)}
                 autoComplete="current-password"
                 placeholder="Digite sua senha"
             />
