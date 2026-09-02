@@ -1,9 +1,8 @@
 import type { Category } from "./category";
-
-export type UserRole = "user" | "admin" | "moderator" | "time clock";
+import type { Role } from "./roles";
 
 export interface AuthUser {
     name: string;
-    role: UserRole;
+    role: Role;
     category: Category;
 }
