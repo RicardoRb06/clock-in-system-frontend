@@ -5,7 +5,6 @@ import { ProtectedRoutes } from "./protected.routes";
 
 import { LoginPage } from "../../pages/Login.page";
 import { RegisterPage } from "../../pages/Register.page";
-import { LoadingPage } from "../../pages/loading";
 
 export function AppRoutes() {
   return (
@@ -13,7 +12,6 @@ export function AppRoutes() {
       <Route element={<PublicRoutes />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/loading" element={<LoadingPage />} />
       </Route>
 
       <Route element={<ProtectedRoutes />}>
