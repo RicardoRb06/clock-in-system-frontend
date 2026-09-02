@@ -19,7 +19,7 @@ export function useRegister() {
             return {success: true, data: response};
         } catch (e){
             setError("Não foi possível registrar usuário");
-            return {success: false, error: error }
+            return {success: false}
         } finally {
             setLoading(false)
         }
