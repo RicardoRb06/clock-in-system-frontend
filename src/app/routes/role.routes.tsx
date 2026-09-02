@@ -7,7 +7,7 @@ interface RoleRouterProps {
     allowedRoles: Role;
 }
 
-export function RoleRouter({ allowedRoles }: RoleRouterProps) {
+export function RoleRoute({ allowedRoles }: RoleRouterProps) {
     const { user, isLoading } = useAuth();
 
     if (isLoading) {
