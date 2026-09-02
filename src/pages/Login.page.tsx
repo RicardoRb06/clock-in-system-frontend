@@ -1,5 +1,5 @@
-import wallpaperDesktop from '../../../assets/images/backgrounds/wallpaperColor.svg';
-import wallpaperMobile from '../../../assets/images/backgrounds/wallpaper.svg';
+import wallpaperDesktop from '../assets/backgrounds/wallpaperColor.svg';
+import wallpaperMobile from '../assets/backgrounds/wallpaper.svg';
 import { LoginForm } from '../features/auth/components/Login.form';
 import { Text } from '../components/ui/Text';
 import { Button } from '../components/ui/Button';
