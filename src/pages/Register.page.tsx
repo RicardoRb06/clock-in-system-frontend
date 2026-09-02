@@ -14,7 +14,7 @@ export function RegisterPage() {
       style={{
         '--bg-mobile': `url(${wallpaperMobile})`,
         '--bg-desktop': `url(${wallpaperDesktop})`,
-      }}
+      } as React.CSSProperties}
     >
       <div className="w-full max-w-md flex flex-col">
         <Text variant="title" className="text-center">IFNITE</Text>
