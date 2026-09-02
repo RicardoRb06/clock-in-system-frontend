@@ -14,6 +14,8 @@ export function useLogin() {
 
             const response = await login({name, password});
 
+            await refreshUser();
+
             return {success: true, data: response};
 
         } catch(error) {
