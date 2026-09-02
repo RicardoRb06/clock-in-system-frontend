@@ -4,7 +4,7 @@ import type { Role } from "../../features/auth/types/roles";
 import { LoadingPage } from "../../pages/loading";
 
 interface RoleRouterProps {
-    allowedRoles: Role;
+    allowedRoles: Role[];
 }
 
 export function RoleRoute({ allowedRoles }: RoleRouterProps) {
