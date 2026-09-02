@@ -35,7 +35,7 @@ export function Button({
 
     return (
         <button
-            className={`${baseStyles} ${variants[variant]} ${sizes[size]}`}
+            className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
             {...props}
         >
             {children}
