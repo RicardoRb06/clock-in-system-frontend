@@ -4,5 +4,5 @@ import type { Role } from "./roles";
 export interface AuthUser {
     name: string;
     role: Role;
-    category: Category;
+    category: Category | null;
 }
