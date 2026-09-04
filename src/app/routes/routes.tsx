@@ -7,6 +7,7 @@ import { LoginPage } from "../../pages/Login.page";
 import { RegisterPage } from "../../pages/Register.page";
 import { RoleRoute } from "./role.routes";
 import { TimeEntryPage } from "../../pages/TimeEntryPage";
+import { RoleRedirect } from "./role.redirect";
 
 export function AppRoutes() {
   return (
@@ -17,6 +18,8 @@ export function AppRoutes() {
       </Route>
 
       <Route element={<ProtectedRoutes />}>
+        <Route path="/" element={<RoleRedirect />} />
+
         <Route element={<RoleRoute allowedRoles={["USER"]} />}>
           <Route path="/time-entry" element={<TimeEntryPage />} />
         </Route>
