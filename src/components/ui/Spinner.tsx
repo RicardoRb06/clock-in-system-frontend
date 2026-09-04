@@ -14,7 +14,7 @@ export function Spinner({
 
     const sizes = {
         sm: 'w-12 h-12',
-        md: 'w-22 h-22',
+        md: 'w-24 h-24',
         lg: 'w-36 h-36',
     };
 
