@@ -21,13 +21,13 @@ export function AppRoutes() {
         <Route path="/" element={<RoleRedirect />} />
 
         <Route element={<RoleRoute allowedRoles={["USER"]} />}>
-          <Route path="/time-entry" element={<TimeEntryPage />} />
         </Route>
         <Route element={<RoleRoute allowedRoles={["ADMIN"]} />}>
         </Route>
         <Route element={<RoleRoute allowedRoles={["MODERATOR"]} />}>
         </Route>
         <Route element={<RoleRoute allowedRoles={["TIME_CLOCK"]} />}>
+          <Route path="/time-entry" element={<TimeEntryPage />} />
         </Route>
       </Route>
     </Routes>
