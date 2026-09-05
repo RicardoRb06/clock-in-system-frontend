@@ -3,21 +3,26 @@ import { useAuth } from "../../features/auth/hooks/useAuth";
 
 export function RoleRedirect() {
     const { user } = useAuth();
-
+    
     if(!user) {
         return <Navigate to="/login" />;
     }
 
-    if(user.role === "USER") {
+    if(user.role === "user") {
+        return <div>Página de usuário</div>;
     }
 
-    if(user.role === "ADMIN") {
+    if(user.role === "admin") {
+        return <div>Página de administrador</div>;
     }
 
-    if(user.role === "MODERATOR") {
+    if(user.role === "moderator") {
+        return <div>Página de moderador</div>;
     }
 
-    if(user.role === "TIME_CLOCK") {
+    if(user.role === "time clock") {
         return <Navigate to="/time-entry" replace />;
     }
+
+    return <Navigate to="/unauthorized" replace />;
 }
