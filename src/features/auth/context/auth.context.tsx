@@ -23,7 +23,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             const user = await me();
 
-            setUser(user);
+            setUser(user.data);
         } catch {
             await logout();
             setUser(null);
