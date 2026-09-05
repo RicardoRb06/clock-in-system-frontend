@@ -1,8 +1,8 @@
 import wallpaperDesktop from '../assets/backgrounds/wallpaperColor.svg';
 import wallpaperMobile from '../assets/backgrounds/wallpaper.svg';
-import { LoginForm } from '../features/auth/components/Login.form';
-import { Text } from '../components/ui/Text';
-import { Button } from '../components/ui/Button';
+import { LoginForm } from '../components/Login.form';
+import { Text } from '../../../components/ui/Text';
+import { Button } from '../../../components/ui/Button';
 import { useNavigate } from 'react-router-dom';
 
 export function LoginPage() {
