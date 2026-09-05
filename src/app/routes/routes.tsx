@@ -2,12 +2,12 @@ import { Routes, Route } from "react-router-dom";
 
 import { PublicRoutes } from "./public.routes";
 import { ProtectedRoutes } from "./protected.routes";
-
-import { LoginPage } from "../../features/auth/pages/Login.page";
-import { RegisterPage } from "../../features/auth/pages/Register.page";
 import { RoleRoute } from "./role.routes";
-import { TimeEntryPage } from "../../pages/TimeEntryPage";
 import { RoleRedirect } from "./role.redirect";
+
+import { LoginPage } from "@/features/auth/pages/Login.page";
+import { RegisterPage } from "@/features/auth/pages/Register.page";
+import { TimeEntryPage } from "@/features/timeEntry/pages/TimeEntryPage";
 
 export function AppRoutes() {
   return (
