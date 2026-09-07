@@ -8,6 +8,7 @@ import { RoleRedirect } from "./role.redirect";
 import { LoginPage } from "@/features/auth/pages/Login.page";
 import { RegisterPage } from "@/features/auth/pages/Register.page";
 import { TimeEntryPage } from "@/features/timeEntry/pages/TimeEntryPage";
+import { TimeEntryLayout } from "@/components/layout/TimeEntryLayout";
 
 export function AppRoutes() {
   return (
@@ -26,9 +27,13 @@ export function AppRoutes() {
         </Route>
         <Route element={<RoleRoute allowedRoles={["moderator"]} />}>
         </Route>
-        <Route element={<RoleRoute allowedRoles={["time clock"]} />}>
-          <Route path="/time-entry" element={<TimeEntryPage />} />
+
+        <Route element={<TimeEntryLayout />}>
+          <Route element={<RoleRoute allowedRoles={["time clock"]} />}>
+            <Route path="/time-entry" element={<TimeEntryPage />} />
+          </Route>
         </Route>
+        
       </Route>
     </Routes>
   );
