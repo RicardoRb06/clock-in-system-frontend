@@ -3,4 +3,7 @@
 @theme {
     --color-primary: #8282E4;
     --color-secondary: #36364D;
+
+    --color-pageBg: #F4F4F8;
+    --color-cardBg: #FFFFFF;
 }
