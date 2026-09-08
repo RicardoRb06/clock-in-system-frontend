@@ -2,7 +2,6 @@ import { Header } from "../parts/header";
 import { Footer } from '../parts/Footer';
 import { Button } from '../ui/Button';
 import { Outlet } from "react-router-dom";
-import { Section } from "../parts/Section";
 
 export function UserLayout(){
     return(
@@ -13,9 +12,9 @@ export function UserLayout(){
                 <Button variant="linkAlternative">Tarefas</Button>
                 <Button variant="linkAlternative">Equipes</Button>
             </Header>
-            <Section className="flex-1">
+            <div className="flex-1">
                 <Outlet />
-            </Section>
+            </div>
             <Footer scheme="scheme-2"/>
         </div>
     )
