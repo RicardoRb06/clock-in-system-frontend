@@ -9,7 +9,7 @@ export function RoleRedirect() {
     }
 
     if(user.role === "user") {
-        return <div>Página de usuário</div>;
+        return <Navigate to="/homepage" />;
     }
 
     if(user.role === "admin") {
