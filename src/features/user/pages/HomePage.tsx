@@ -10,7 +10,7 @@ export function HomePage () {
         <div className="h-full flex flex-col">
             <Section scheme="scheme-1">
                 <Banner accent="Página inicial" title={`Olá, ${user?.name}`} description="Confira suas tarefas e atividades." />
-                <div>
+                <div className="flex gap-4 mt-4">
                     <Button>Ver Tarefas</Button>
                     <Button>Ver Horas</Button>
                 </div>
