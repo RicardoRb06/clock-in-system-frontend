@@ -14,7 +14,7 @@ export function Button({
 }: ButtonProps) {
   
     const baseStyles =
-    "font-inter text-base font-medium normal-case tracking-[0.01em] px-4 py-2.5 rounded-md transition-colors duration-200 ease-in-out cursor-pointer";
+    "text-base font-medium normal-case tracking-[0.01em] px-4 py-2.5 rounded-md transition-colors duration-200 ease-in-out cursor-pointer";
 
     const variants = {
     primary:
