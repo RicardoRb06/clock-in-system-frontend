@@ -11,6 +11,8 @@ import { TimeEntryPage } from "@/features/timeEntry/pages/TimeEntryPage";
 import { TimeEntryLayout } from "@/components/layout/TimeEntryLayout";
 import { TestPage } from "@/pages/testPage";
 import { TestLayout } from "@/components/layout/TestLayout";
+import { UserLayout } from "@/components/layout/UserLayout";
+import { HomePage } from "@/features/user/pages/HomePage";
 
 export function AppRoutes() {
   return (
@@ -26,7 +28,10 @@ export function AppRoutes() {
       <Route element={<ProtectedRoutes />}>
         <Route path="/" element={<RoleRedirect />} />
 
-        <Route element={<RoleRoute allowedRoles={["user"]} />}>
+        <Route element={<UserLayout />}>
+          <Route element={<RoleRoute allowedRoles={["user"]} />}>
+            <Route path="/homePage" element={<HomePage />} />
+          </Route>
         </Route>
         <Route element={<RoleRoute allowedRoles={["admin"]} />}>
         </Route>
