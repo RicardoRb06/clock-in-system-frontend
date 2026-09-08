@@ -2,10 +2,11 @@
 
 @theme {
     --color-primary: #8282E4;
+    --color-primary-hover: #6f6fd1;
     --color-secondary: #36364D;
 
-    --color-pageBg: #F4F4F8;
-    --color-cardBg: #FFFFFF;
+    --color-neutral: #161616;
+    
 
     --font-Inter: 'Inter', 'Space Grotesk', sans-serif;
 
