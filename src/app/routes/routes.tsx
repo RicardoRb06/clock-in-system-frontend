@@ -9,6 +9,8 @@ import { LoginPage } from "@/features/auth/pages/Login.page";
 import { RegisterPage } from "@/features/auth/pages/Register.page";
 import { TimeEntryPage } from "@/features/timeEntry/pages/TimeEntryPage";
 import { TimeEntryLayout } from "@/components/layout/TimeEntryLayout";
+import { TestPage } from "@/pages/testPage";
+import { TestLayout } from "@/components/layout/TestLayout";
 
 export function AppRoutes() {
   return (
@@ -16,6 +18,9 @@ export function AppRoutes() {
       <Route element={<PublicRoutes />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route element={<TestLayout />}>
+          <Route path="/test" element={<TestPage />} />
+        </Route>
       </Route>
 
       <Route element={<ProtectedRoutes />}>
