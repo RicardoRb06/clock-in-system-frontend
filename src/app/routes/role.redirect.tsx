@@ -8,16 +8,8 @@ export function RoleRedirect() {
         return <Navigate to="/login" />;
     }
 
-    if(user.role === "user") {
+    if(user.role === "user" || user.role === "admin" || user.role === "moderator") {
         return <Navigate to="/homepage" />;
-    }
-
-    if(user.role === "admin") {
-        return <div>Página de administrador</div>;
-    }
-
-    if(user.role === "moderator") {
-        return <div>Página de moderador</div>;
     }
 
     if(user.role === "time clock") {
