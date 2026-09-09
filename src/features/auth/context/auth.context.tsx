@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { AuthUser } from "../types/user";
-import { me } from "../api/authApi";
+import { me, logout } from "../api/authApi";
 
 interface AuthContextData {
     user: AuthUser | null;
@@ -23,8 +23,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             const user = await me();
 
-            setUser(user);
+            setUser(user.data);
         } catch {
+            await logout();
             setUser(null);
         } finally {
             setIsLoading(false);

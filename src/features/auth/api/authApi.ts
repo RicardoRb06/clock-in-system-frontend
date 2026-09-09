@@ -18,10 +18,15 @@ export async function login(data: LoginRequest) {
 
 export async function register(data: RegisterRequest) {
     const response = await api.post("auth/register", data);
-    return response.data
+    return response.data;
 }
 
 export async function me(){
     const response = await api.get("auth/me");
-    return response.data
+    return response.data;
+}
+
+export async function logout() {
+    const response = await api.get("auth/logout");
+    return response.data;
 }
