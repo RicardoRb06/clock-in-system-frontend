@@ -13,6 +13,9 @@ import { TestPage } from "@/pages/testPage";
 import { TestLayout } from "@/components/layout/TestLayout";
 import { UserLayout } from "@/components/layout/UserLayout";
 import { HomePage } from "@/features/user/pages/HomePage";
+import { HoursPage } from "@/features/user/pages/HoursPage";
+import { TasksPage } from "@/features/user/pages/TasksPage";
+import { TeamsPage } from "@/features/user/pages/TeamsPage";
 
 export function AppRoutes() {
   return (
@@ -29,13 +32,16 @@ export function AppRoutes() {
         <Route path="/" element={<RoleRedirect />} />
 
         <Route element={<UserLayout />}>
-          <Route element={<RoleRoute allowedRoles={["user"]} />}>
+          <Route element={<RoleRoute allowedRoles={["user", "admin", "moderator"]} />}>
             <Route path="/homePage" element={<HomePage />} />
+            <Route path="/hours" element={<HoursPage />} />
+            <Route path="/tasks" element={<TasksPage />} />
+            <Route path="/teams" element={<TeamsPage />} />
           </Route>
-        </Route>
-        <Route element={<RoleRoute allowedRoles={["admin"]} />}>
-        </Route>
-        <Route element={<RoleRoute allowedRoles={["moderator"]} />}>
+          <Route element={<RoleRoute allowedRoles={["admin"]} />}>
+          </Route>
+          <Route element={<RoleRoute allowedRoles={["moderator"]} />}>
+          </Route>
         </Route>
 
         <Route element={<TimeEntryLayout />}>
