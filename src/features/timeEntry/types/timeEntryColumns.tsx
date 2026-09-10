@@ -4,12 +4,11 @@ import type { AuthUser } from '@/features/auth/types/user';
 import { Lock } from 'lucide-react';
 
 interface TimeEntryColumnsOptions {
-    columnLabel: string;
     buttonLabel: string;
     onAction: (user: AuthUser) => void;
 }
 
-export function timeEntryColumns({ buttonLabel, onAction}: TimeEntryColumnsOptions): Column<AuthUser>[] {
+export function timeEntryColumns({ buttonLabel, onAction }: TimeEntryColumnsOptions): Column<AuthUser>[] {
     return [
         {
             key: "name",
@@ -34,7 +33,7 @@ export function timeEntryColumns({ buttonLabel, onAction}: TimeEntryColumnsOptio
         {
             key: "timeEntry",
             label: "Ponto",
-            render: () => (<Button onClick={() => onAction(user)}>{buttonLabel}</Button>),
+            render: (user) => (<Button onClick={() => onAction(user)}>{buttonLabel}</Button>),
         },
     ]
 };
