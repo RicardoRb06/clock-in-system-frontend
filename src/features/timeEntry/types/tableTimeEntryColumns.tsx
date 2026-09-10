@@ -11,7 +11,7 @@ export const timeEntryColumns: Column<AuthUser>[] = [
     {
         key: "category",
         label: "Equipe",
-        render: (user) => user._category ?? "",
+        render: (user) => user._category ?? "Nenhuma",
     },
     {
         key: "role",
