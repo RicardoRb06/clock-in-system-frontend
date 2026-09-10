@@ -3,8 +3,8 @@ import type { Role } from "./roles";
 
 export interface AuthUser {
     _id: string;
-    name: string;
-    role: Role;
-    category: Category | null;
+    _name: string;
+    _role: Role;
+    _category: Category | null;
     _isWorking: boolean;
 }
