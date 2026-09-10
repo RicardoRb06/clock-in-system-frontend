@@ -19,7 +19,7 @@ export function Table<T>({columns, data, className = ""}: TableProps<T>) {
                 <thead>
                     <tr className="border-b border-scheme-border bg-scheme-bg-secondary">
                         {columns.map((col) => (
-                            <th key={col.key} className="px-4 py-3 text-left text-sm font-semibold">
+                            <th key={col.key} className="px-4 py-3 text-center text-sm font-semibold">
                                 {col.label}
                             </th>
                         ))}
@@ -36,7 +36,7 @@ export function Table<T>({columns, data, className = ""}: TableProps<T>) {
                         data.map((item, index) => (
                         <tr key={index} className="border-b border-scheme-border last:border-b-0">
                             {columns.map((col) => (
-                                <td key={col.key} className="px-4 py-3 text-sm">
+                                <td key={col.key} className="px-4 py-3 text-center text-sm">
                                     {col.render(item)}
                                 </td>
                             ))}
