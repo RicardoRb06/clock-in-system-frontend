@@ -26,10 +26,21 @@ export function useUsers() {
     fetchUsers();
   }, [fetchUsers]);
 
+  function updateUser(userId: string, data: Partial<AuthUser>) {
+        setUsers((currentUsers) =>
+            currentUsers.map((user) =>
+                user._id === userId
+                    ? { ...user, ...data }
+                    : user
+            )
+        );
+    }
+
   return {
     users,
     isLoading,
     error,
+    updateUser,
     refetch: fetchUsers,
   };
 }
