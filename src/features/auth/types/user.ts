@@ -5,4 +5,5 @@ export interface AuthUser {
     name: string;
     role: Role;
     category: Category | null;
+    _isWorking: boolean;
 }
