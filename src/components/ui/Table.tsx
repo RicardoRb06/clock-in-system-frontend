@@ -1,6 +1,9 @@
-interface Column<T> {
-    key: keyof T;
+import type { ReactNode } from "react";
+
+export interface Column<T> {
+    key: string;
     label: string;
+    render: (item: T) => ReactNode;
 }
 
 interface TableProps<T> {
@@ -8,35 +11,30 @@ interface TableProps<T> {
     data: T[];
 }
 
-export function Table<T extends {id?: string | number}>({columns, data}: TableProps<T>) {
+export function Table<T>({columns, data}: TableProps<T>) {
     return (
-        <div>
-            <table>
+        <div className="overflow-x-auto rounded-lg border">
+            <table className="w-full">
                 <thead>
-                    <tr>
+                    <tr className="border-b bg-gray-50">
                         {columns.map((col) => (
-                            <th key={String(col.key)}>
+                            <th key={col.key} className="px-4 py-3 text-left text-sm font-semibold">
                                 {col.label}
                             </th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {data.length === 0 ? (
-                        <tr>
-                            <td>nenhum dado disponível</td>
+                    {data.map((item, index) => (
+                        <tr key={index} className="border-b last:border-b-0">
+                            {columns.map((col) => (
+                                <td key={col.key} className="px-4 py-3 text-sm">
+                                    {col.render(item)}
+                                </td>
+                            ))}
                         </tr>
-                    ) : (
-                        data.map((row, i) => (
-                            <tr key={row.id ?? i}>
-                                {columns.map((col) => (
-                                    <td key={String(col.key)}>
-                                        {String(row[col.key] ?? "")}
-                                    </td>
-                                ))}
-                            </tr>
                         ))
-                    )}
+                    }
                 </tbody>
             </table>
         </div>
