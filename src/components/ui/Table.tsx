@@ -26,7 +26,14 @@ export function Table<T>({columns, data, className = ""}: TableProps<T>) {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item, index) => (
+                    {data.length === 0 ? (
+                        <tr>
+                            <td colSpan={columns.length} className="px-4 py-8 text-center text-slate-400">
+                                Lista vazia.
+                            </td>
+                        </tr>
+                    ):(
+                        data.map((item, index) => (
                         <tr key={index} className="border-b border-scheme-border last:border-b-0">
                             {columns.map((col) => (
                                 <td key={col.key} className="px-4 py-3 text-sm">
@@ -35,7 +42,7 @@ export function Table<T>({columns, data, className = ""}: TableProps<T>) {
                             ))}
                         </tr>
                         ))
-                    }
+                    )}
                 </tbody>
             </table>
         </div>
