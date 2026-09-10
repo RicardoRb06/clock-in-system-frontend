@@ -13,10 +13,10 @@ interface TableProps<T> {
 
 export function Table<T>({columns, data}: TableProps<T>) {
     return (
-        <div className="overflow-x-auto rounded-lg border">
+        <div className="overflow-x-auto rounded-md">
             <table className="w-full">
                 <thead>
-                    <tr className="border-b bg-gray-50">
+                    <tr className="border-b border-scheme-border bg-scheme-bg-secondary">
                         {columns.map((col) => (
                             <th key={col.key} className="px-4 py-3 text-left text-sm font-semibold">
                                 {col.label}
@@ -26,7 +26,7 @@ export function Table<T>({columns, data}: TableProps<T>) {
                 </thead>
                 <tbody>
                     {data.map((item, index) => (
-                        <tr key={index} className="border-b last:border-b-0">
+                        <tr key={index} className="border-b border-scheme-border last:border-b-0">
                             {columns.map((col) => (
                                 <td key={col.key} className="px-4 py-3 text-sm">
                                     {col.render(item)}
