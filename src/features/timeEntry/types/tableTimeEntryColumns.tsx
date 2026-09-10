@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/Button';
 import type { Column } from '@/components/ui/Table';
 import type { AuthUser } from '@/features/auth/types/user';
+import { Lock } from 'lucide-react';
 
 export const timeEntryColumns: Column<AuthUser>[] = [
     {
@@ -21,11 +22,11 @@ export const timeEntryColumns: Column<AuthUser>[] = [
     {
         key: "hours",
         label: "Ver Horas",
-        render: () => (<Button>Ver horas</Button>),
+        render: () => (<Button variant="link"><Lock /></Button>),
     },
     {
         key: "timeEntry",
-        label: "Abrir/Fechar Ponto",
-        render: () => (<Button>Ver horas</Button>),
+        label: "Abrir Ponto",
+        render: () => (<Button>Abrir ponto</Button>),
     },
 ];
