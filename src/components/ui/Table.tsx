@@ -9,11 +9,12 @@ export interface Column<T> {
 interface TableProps<T> {
     columns: Column<T>[];
     data: T[];
+    className?: string;
 }
 
-export function Table<T>({columns, data}: TableProps<T>) {
+export function Table<T>({columns, data, className = ""}: TableProps<T>) {
     return (
-        <div className="overflow-x-auto rounded-md">
+        <div className={`overflow-x-auto rounded-md ${className}`}>
             <table className="w-full">
                 <thead>
                     <tr className="border-b border-scheme-border bg-scheme-bg-secondary">
