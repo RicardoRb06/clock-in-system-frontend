@@ -15,7 +15,7 @@ interface TableProps<T> {
 export function Table<T>({columns, data, className = ""}: TableProps<T>) {
     return (
         <div className={`overflow-x-auto rounded-md ${className}`}>
-            <table className="w-full">
+            <table className="w-full table-fixed">
                 <thead>
                     <tr className="border-b border-scheme-border bg-scheme-bg-secondary">
                         {columns.map((col) => (
