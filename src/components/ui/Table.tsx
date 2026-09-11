@@ -1,21 +1,25 @@
-interface Column<T> {
-    key: keyof T;
+import type { ReactNode } from "react";
+
+export interface Column<T> {
+    key: string;
     label: string;
+    render: (item: T) => ReactNode;
 }
 
 interface TableProps<T> {
     columns: Column<T>[];
     data: T[];
+    className?: string;
 }
 
-export function Table<T extends {id?: string | number}>({columns, data}: TableProps<T>) {
+export function Table<T>({columns, data, className = ""}: TableProps<T>) {
     return (
-        <div>
-            <table>
+        <div className={`overflow-x-auto rounded-md ${className}`}>
+            <table className="w-full table-fixed">
                 <thead>
-                    <tr>
+                    <tr className="border-b border-scheme-border bg-scheme-bg-secondary">
                         {columns.map((col) => (
-                            <th key={String(col.key)}>
+                            <th key={col.key} className="px-4 py-3 text-center text-sm font-semibold">
                                 {col.label}
                             </th>
                         ))}
@@ -24,17 +28,19 @@ export function Table<T extends {id?: string | number}>({columns, data}: TablePr
                 <tbody>
                     {data.length === 0 ? (
                         <tr>
-                            <td>nenhum dado disponível</td>
+                            <td colSpan={columns.length} className="px-4 py-8 text-center text-slate-400">
+                                Lista vazia.
+                            </td>
                         </tr>
-                    ) : (
-                        data.map((row, i) => (
-                            <tr key={row.id ?? i}>
-                                {columns.map((col) => (
-                                    <td key={String(col.key)}>
-                                        {String(row[col.key] ?? "")}
-                                    </td>
-                                ))}
-                            </tr>
+                    ):(
+                        data.map((item, index) => (
+                        <tr key={index} className="border-b border-scheme-border last:border-b-0">
+                            {columns.map((col) => (
+                                <td key={col.key} className="px-4 py-3 text-center text-sm">
+                                    {col.render(item)}
+                                </td>
+                            ))}
+                        </tr>
                         ))
                     )}
                 </tbody>

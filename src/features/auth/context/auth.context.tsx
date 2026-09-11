@@ -7,6 +7,7 @@ interface AuthContextData {
     isAuthenticated: boolean;
     isLoading: boolean;
     refreshUser: () => Promise<void>;
+    logout: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextData | undefined>(undefined);
@@ -32,6 +33,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
         }
     }
 
+    async function logoutUser() {
+        try{
+            setIsLoading(true);
+            await logout;
+            setUser(null);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
     useEffect(() => {
         loadUser();
     }, []);
@@ -41,6 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         isAuthenticated: user !== null,
         isLoading,
         refreshUser: loadUser,
+        logout: logoutUser,
     };
 
     return (
